@@ -21,8 +21,8 @@ def denner():
 def main():
     denner()
     parser = argparse.ArgumentParser(description="喰星云·数字化餐饮服务系统 多处 SQL注入漏洞 [1]")
-    parser.add_argument('-u','--url',dest='url',type=str,help="Please Input URL")
-    parser.add_argument('-f','--file',dest='file',type=str,help="Please Input File")
+    parser.add_argument('-u','--url',dest='url'，type=str,help="Please Input URL")
+    parser.add_argument('-f','--file',dest='file'，type=str,help="Please Input File")
     args = parser.parse_args()
 
     # 判断url/file
